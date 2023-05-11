@@ -32,7 +32,8 @@ public:
         cout <<"Tong so tin chi: " << soTinChi << endl;
         cout <<"Diem trung binh: " << diemTB << endl;
     }
-    virtual bool totNghiep() const = 0;
+    virtual bool totNghiep() = 0;
+    virtual bool laSVDH() = 0;
 };
 
 class SinhVienVB2 : public SinhVien
@@ -57,13 +58,19 @@ public:
         cout << "Diem thi tot nghiep: " << diemThi << endl;
     }
 
-    bool totNghiep() const
+    bool totNghiep() 
     {
         if (soTinChi >= 84 && diemTB >= 5 && diemThi >= 5)
             return true;
         else
             return false;
     }
+
+    bool laSVDH()
+    {
+        return false;
+    }
+
 };
 
 class SinhVienDH : public SinhVien
@@ -91,14 +98,37 @@ public:
         cout <<"Diem luan van: " << diemLV << endl;
     }
 
-    bool totNghiep() const
+    bool totNghiep() 
     {
         if (soTinChi >= 120 && diemTB >= 5 && diemLV >= 5)
             return true;
         else
             return false;
     }
+
+    bool laSVDH()
+    {
+        return true;
+    }
 };
+
+class DaiHoc
+{
+private: 
+    vector<SinhVien*> danhSachSV;
+    string tenTruong = "UIT";
+public: 
+    DaiHoc() {}
+    void taoDanhSach();
+    void xuatDanhSach();
+    void xetTotNghiep();
+    vector<SinhVien*> SVTotNghiep();
+    vector<SinhVien*> SVKoTotNghiep();
+    vector<SinhVien*> SVVB2DiemTBThapNhat();
+    vector<SinhVien*> SVDiemTBCaoNhat();
+};
+
+
 int main()
 {
     SinhVienVB2 A;
