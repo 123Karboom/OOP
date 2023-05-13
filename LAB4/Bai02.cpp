@@ -63,8 +63,6 @@ string addresses[] = {
     "237 Cong Hoa, Quang Tri",
     "570 Kim Dong, Thua Thien Hue"};
 
-
-
 class SinhVien
 {
 protected:
@@ -89,6 +87,22 @@ public:
         this->soTinChi = soTinChi;
         this->diemTB = diemTB;
     }
+
+    string getHoTen()
+    {
+        return hoTen;
+    }
+
+    int getMaSo()
+    {
+        return maSo;
+    }
+
+    double getdiemTB()
+    {
+        return diemTB;
+    }
+
     virtual void xuat() const
     {
         cout << "Ho va ten: " << hoTen << endl;
@@ -195,11 +209,11 @@ public:
 };
 
 void DaiHoc ::taoDanhSach()
-{   
+{
     int n, m;
-    cout <<"Nhap so luong sinh vien dai hoc: ";
+    cout << "Nhap so luong sinh vien dai hoc: ";
     cin >> n;
-    cout <<"Nhap so luong sinh vien VB2: ";
+    cout << "Nhap so luong sinh vien VB2: ";
     cin >> m;
     srand(time(0));
     for (int i = 1; i <= n; i++)
@@ -210,10 +224,10 @@ void DaiHoc ::taoDanhSach()
         double diemTB = dis(gen);
         double diemLV = dis(gen);
         string tenLV = "LV thu " + to_string(i);
-        danhSachSV.push_back(new SinhVienDH(names[i], 22520000+i, addresses[i], (rand() % 20) + 110, diemTB, tenLV, diemLV));
+        danhSachSV.push_back(new SinhVienDH(names[i], 22520000 + i, addresses[i], (rand() % 20) + 110, diemTB, tenLV, diemLV));
     }
 
-    for (int i = 1; i <= m; i++ )
+    for (int i = 0; i <= n; i++)
     {
         random_device rd;
         mt19937 gen(rd());
@@ -222,7 +236,6 @@ void DaiHoc ::taoDanhSach()
         double diemThi = dis(gen);
         danhSachSV.push_back(new SinhVienVB2(names[i], 22530000 + i, addresses[i], (rand() % 30) + 70, diemTB, diemThi));
     }
-
 }
 
 void DaiHoc ::xuatDanhSach()
@@ -235,9 +248,60 @@ void DaiHoc ::xuatDanhSach()
     }
 }
 
+vector<SinhVien *> DaiHoc ::SVTotNghiep()
+{
+    vector<SinhVien *> DSSVTotNghiep;
+    for (int i = 0; i < danhSachSV.size(); i++)
+    {
+        if (danhSachSV[i]->totNghiep())
+        {
+            DSSVTotNghiep.push_back(danhSachSV[i]);
+        }
+    }
+    return DSSVTotNghiep;
+}
+
+vector<SinhVien *> DaiHoc ::SVKoTotNghiep()
+{
+    vector<SinhVien *> DSSVKoTotNghiep;
+    for (int i = 0; i < danhSachSV.size(); i++)
+    {
+        if (!danhSachSV[i]->totNghiep())
+        {
+            DSSVKoTotNghiep.push_back(danhSachSV[i]);
+        }
+    }
+    return DSSVKoTotNghiep;
+}
+
+vector<SinhVien* > DaiHoc ::SVVB2DiemTBThapNhat()
+{
+    vector<SinhVien* > DSSVVB2DiemTBThapNhat;
+    double diemMin = 10.0;
+    for(int i = 0; i < danhSachSV.size(); i++)
+    {
+        if(!danhSachSV[i]->laSVDH() && danhSachSV[i]->getdiemTB() < diemMin)
+        {
+            diemMin = danhSachSV[i]->getdiemTB();
+        }
+    }
+
+    for (int i = 0; i < danhSachSV.size(); i++)
+    {
+        if (!danhSachSV[i]->laSVDH() && danhSachSV[i]->getdiemTB() == diemMin)
+        {
+            DSSVVB2DiemTBThapNhat.push_back(danhSachSV[i]);
+        }
+    }
+
+    return DSSVVB2DiemTBThapNhat;
+}
+
+
 int main()
 {
     DaiHoc UIT;
     UIT.taoDanhSach();
-    UIT.xuatDanhSach();
+    // UIT.xuatDanhSach();
+    UIT.xetTotNghiep();
 }
