@@ -164,7 +164,7 @@ public:
     DaiHoc() {}
     void taoDanhSach();
     void xuatDanhSach();
-    void xetTotNghiep();
+    // void xetTotNghiep();
     vector<SinhVien *> SVTotNghiep();
     vector<SinhVien *> SVKoTotNghiep();
     vector<SinhVien *> SVVB2DiemTBThapNhat();
@@ -266,5 +266,4 @@ int main()
     DaiHoc UIT;
     UIT.taoDanhSach();
     // UIT.xuatDanhSach();
-    UIT.xetTotNghiep();
 }
