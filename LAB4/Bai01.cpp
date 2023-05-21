@@ -145,7 +145,8 @@ public:
     ~NhanVienVanPhong(); // Destructor
     void inThongTin();   // In thông tin
     void tinhLuong();    // Tính lương
-    int getSoNG();
+    int getSoNG();      //  Lấy số ngày làm viec
+    int getSoNG();      //  Lấy số ngày làm viec
 };
 
 NhanVienVanPhong ::NhanVienVanPhong() : NhanVien()
