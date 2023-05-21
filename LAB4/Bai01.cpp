@@ -145,8 +145,7 @@ public:
     ~NhanVienVanPhong(); // Destructor
     void inThongTin();   // In thông tin
     void tinhLuong();    // Tính lương
-    int getSoNG();      //  Lấy số ngày làm viec
-    int getSoNG();      //  Lấy số ngày làm viec
+    int getSoNG();      //  Lấy số ngày làm viec 
 };
 
 NhanVienVanPhong ::NhanVienVanPhong() : NhanVien()
@@ -363,7 +362,7 @@ vector<NhanVienSanXuat *> CongTy ::NhanVienCoSoSPThapNhat()
 {
     vector<NhanVienSanXuat *> result;
     int minSP = danhSachNVSX[0]->getSoSP();
-    for (int i = 0; i < danhSachNVSX.size(); i++)
+    for (int i = 1; i < danhSachNVSX.size(); i++)
     {
         if (danhSachNVSX[i]->getSoSP() < minSP)
             minSP = danhSachNVSX[i]->getSoSP();
