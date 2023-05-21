@@ -129,7 +129,7 @@ public:
         MaCT = 123;
         soNVSX = soNVVP = 0;
     }
-    void taoDuLieuNV();                             // 1. Tao du lieu nhan vien
+    void loadData();                             // 1. Tao du lieu nhan vien
     void inDanhSachNhanVien();                      // 2. Xuat cac nhan vien trong cong ty
     void tinhLuong();                               // 3. Tinh luong nhan vien
     vector<NhanVien *> timNhanVienLuongCaoNhat();   // 4. Tim nhan vien luong cao nhat
@@ -139,7 +139,7 @@ public:
     vector<NhanVien *> timTop10NVLuongCaoNhat();    // 8. Top 10 nhan vien luong cao nhat
 };
 
-void CongTy ::taoDuLieuNV()
+void CongTy ::loadData()
 {
     srand(time(0));
     vector<string> danhSachTen = {
@@ -225,7 +225,7 @@ vector<NhanVien *> CongTy ::timNhanVienLuongCaoNhat()
 int main()
 {
     CongTy AA;
-    AA.taoDuLieuNV();
+    AA.loadData();
     AA.tinhLuong();
     AA.inDanhSachNhanVien();
 }
