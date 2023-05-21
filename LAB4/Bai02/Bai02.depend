@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1684679057 source:d:\bao\oop_codeblock\bai02\main.cpp
+	<bits/stdc++.h>
+	<DaiHoc.h>
+
+1684676398 source:d:\bao\oop_codeblock\bai02\src\sinhvien.cpp
+	"SinhVien.h"
+	<string>
+
+1684678659 d:\bao\oop_codeblock\bai02\include\sinhvien.h
+	<string>
+	<iostream>
+
+1684678051 source:d:\bao\oop_codeblock\bai02\src\sinhviendh.cpp
+	"SinhVienDH.h"
+	<bits/stdc++.h>
+
+1684676065 d:\bao\oop_codeblock\bai02\include\sinhviendh.h
+	<SinhVien.h>
+
+1684678056 source:d:\bao\oop_codeblock\bai02\src\sinhvienvb2.cpp
+	"SinhVienVB2.h"
+	<bits/stdc++.h>
+
+1684676066 d:\bao\oop_codeblock\bai02\include\sinhvienvb2.h
+	<SinhVien.h>
+
+1684678975 source:d:\bao\oop_codeblock\bai02\src\daihoc.cpp
+	"DaiHoc.h"
+	<SinhVienDH.h>
+	<SinhVienVB2.h>
+	<bits/stdc++.h>
+
+1684677267 d:\bao\oop_codeblock\bai02\include\daihoc.h
+	<vector>
+	<string>
+	"SinhVien.h"
+
