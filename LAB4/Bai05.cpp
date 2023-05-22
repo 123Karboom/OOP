@@ -82,7 +82,7 @@ int Nguoi ::getTuoi()
 class BacSi : public Nguoi
 {
 protected:
-    vector<BenhNhan *> DSBenhNhan;
+    vector<Nguoi *> DSBenhNhan;
     int maBS;
     long long tienCong;
 
@@ -92,7 +92,7 @@ public:
     ~BacSi();                                             // Destructor
     int getMaBS();                                        // Lay ma bac si
     long long getTienCong();                              // Lay tien cong
-    void themBenhNhan(BenhNhan *BN);                      // Them benh nhan vao danh sach kham benh
+    void themBenhNhan(Nguoi *BN);                      // Them benh nhan vao danh sach kham benh
     void xuat();                                          // Xuat thong tin bac si
     void tinhTienCong();                                  // Tinh tien cong kham benh
 };
@@ -125,7 +125,7 @@ long long BacSi ::getTienCong()
 }
 
 // Them Benh nhan cho bac si
-void BacSi ::themBenhNhan(BenhNhan *BN)
+void BacSi ::themBenhNhan(Nguoi *BN)
 {
     DSBenhNhan.push_back(BN);
 }
@@ -137,12 +137,12 @@ void BacSi ::xuat()
     Nguoi ::xuat();
     cout << "    + Ma bac si: " << maBS << endl;
     cout << "    + Tien cong kham benh: " << tienCong << endl;
-    // cout << "    + Danh sach benh nhan da kham: ";
-    // for (int i = 0; i < DSBenhNhan.size(); i++)
-    // {
-    //     cout << DSBenhNhan[i]->getTen() << ", ";
-    // }
-    // cout << endl;
+    cout << "    + Danh sach benh nhan da kham: ";
+    for (int i = 0; i < DSBenhNhan.size(); i++)
+    {
+        cout << DSBenhNhan[i]->getTen() << ", ";
+    }
+    cout << endl;
 }
 
 // Tinh tien cong kham benh cho bac si
@@ -164,7 +164,7 @@ protected:
     int soLanKham;
     long long tienThuoc;
     bool baoHiem;
-    vector<BacSi *> DSBacSi;
+    vector<Nguoi *> DSBacSi;
 
 public:
     BenhNhan();                                                                           // Constructor
@@ -174,7 +174,7 @@ public:
     int getSoLanKham();                                                                   // Lay so lan kham benh
     long long getTienThuoc();                                                             // Lay tien thuoc
     bool getBaoHiem();                                                                    // Lay tinh trang bao hiem
-    void themBacSi(BacSi *BS);                                                            // Them bac si vao danh sach
+    void themBacSi(Nguoi *BS);                                                            // Them bac si vao danh sach
     void tinhTienThuoc();                                                                 // Tinh tien thuoc
     void xuat();                                                                          // Xuat thong tin benh nhan
 };
@@ -222,7 +222,7 @@ bool BenhNhan ::getBaoHiem()
 }
 
 // Them bac si cho benh nhan
-void BenhNhan ::themBacSi(BacSi *BS)
+void BenhNhan ::themBacSi(Nguoi *BS)
 {
     DSBacSi.push_back(BS);
 }
@@ -306,7 +306,10 @@ void BenhVien ::loadData(int soBS, int soBN)
         int k = danhSachBN[i]->getSoLanKham();
         for (int j = 1; j <= k; j++)
         {
-            int randBS = rand() % (soBS - 2);
+            random_device rd;
+            mt19937 generator(rd());
+            uniform_int_distribution<int> distribution(0, soBS - 2);
+            int randBS = distribution(generator);
             danhSachBN[i]->themBacSi(danhSachBS[randBS]);
             danhSachBS[randBS]->themBenhNhan(danhSachBN[i]);
         }
