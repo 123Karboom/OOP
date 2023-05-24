@@ -295,7 +295,7 @@ void BenhVien ::loadData(int soBS, int soBN)
         danhSachBS.push_back(BS);
     }
     // Tao danh sach benh nhan
-    for (int i = 0; i < soBS; i++)
+    for (int i = 0; i < soBN; i++)
     {
         BenhNhan *BN = new BenhNhan(tenBN[i % 50], (rand() % 50) + 10, rand() % 2, 1000 + i, (rand() % 7) + 3, rand() % 2);
         danhSachBN.push_back(BN);
@@ -551,7 +551,6 @@ void BacSiCoTienCongCaoNhat()
 }
 
 // Cac benh nhan co so lan kham benh nhieu nhat
-
 void BenhNhanKhamBenhNhieuNhat()
 {
     vector<BenhNhan *> result;
@@ -589,6 +588,7 @@ int main()
         cout << "7. Tinh tien kham benh " << endl;
         cout << "8. Hien thi cac bac si co tien cong kham benh cao nhat" << endl;
         cout << "9. Hien thi cac benh nhan co so lan kham benh nhieu nhat" << endl;
+        cout << "0. Exit" << endl;
         cout << "Nhap lua chon cua ban: ";
         cin >> choice;
 
