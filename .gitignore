@@ -27,9 +27,7 @@
 *.lib
 *.vscode
 # Executables
+LAB2/Bai01.exe
 *.exe
 *.out
 *.app
-LAB2/*.exe
-LAB2/Sodo/*.png
-/LAB2/Sodo/*.png
