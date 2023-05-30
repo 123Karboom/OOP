@@ -27,7 +27,7 @@
 *.lib
 *.vscode
 # Executables
-LAB2/Bai01.exe
+LAB2/*.exe
 *.exe
 *.out
 *.app
