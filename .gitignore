@@ -27,7 +27,11 @@
 *.lib
 *.vscode
 # Executables
+LAB1/*.exe
 LAB2/*.exe
+LAB3/*.exe
+LAB4/*.exe
+Pratice/*.exe
 *.exe
 *.out
 *.app
