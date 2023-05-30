@@ -32,3 +32,4 @@
 *.app
 LAB2/*.exe
 LAB2/Sodo/*.png
+/LAB2/Sodo/*.png
