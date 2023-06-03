@@ -254,6 +254,7 @@ int main()
 {
     ThuVien UIT;
     UIT.nhap();
+    cout <<"Sach: ";
     UIT.xuat();
     vector<Sach *> ans;
     ans = UIT.timSach();
