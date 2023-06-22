@@ -262,6 +262,7 @@ vector<NhanVien *> CongTy ::NVLuongCBCaoNhat()
     return nv;
 }
 
+// Cau 8. Tim nhan vien san xuat co luong co ban cao nhat
 vector<NhanVien *> CongTy ::NVSXLuongCBCaoNhat()
 {
     long long maxLuong = INT_MIN;
@@ -283,6 +284,7 @@ vector<NhanVien *> CongTy ::NVSXLuongCBCaoNhat()
     return nv;
 }
 
+// Cau 9. Tim nhan vien luong co ban thap nhat
 vector<NhanVien *> CongTy ::NVLuongCBThapNhat()
 {
     long long minLuong = INT_MAX;
